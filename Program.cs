@@ -1,1 +1,5 @@
-﻿Console.WriteLine("Going to be a Cinema Ticket System");
+﻿using CinemaTicketSystem;
+
+TicketSystemInterface s = new();
+
+s.TicketMenu();
