@@ -9,15 +9,25 @@ namespace CinemaTicketSystem
     internal class Room
     {
 
-        public int Seats { get; set; }
+        public Dictionary<int,bool> Seats { get; set; } = new();
         public string Movie { get; set; }
         public int RoomNumber { get; set; }
 
-        public Room(int seats, string movie, int roomNumber)
+        public Room(string movie, int roomNumber)
         {
-            this.Seats = seats;
+            CreateSeats();
             this.Movie = movie;
             this.RoomNumber = roomNumber;
+        }
+
+        void CreateSeats()
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                Seats?.Add(i, false);
+            }
+            Console.WriteLine("Seats where created for the room...");
+            Thread.Sleep(1000);
         }
 
     }
