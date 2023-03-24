@@ -44,5 +44,22 @@ namespace CinemaTicketSystem
             }
             Console.WriteLine("---Movies---");
         }
+
+        public void DeleteMovie()
+        {
+            Console.WriteLine("---Delete Movie Menu---");
+            Console.Clear();
+            ShowAllMovies();
+
+            int movieIndex = 0;
+
+            var result = int.TryParse(Console.ReadLine(), out movieIndex);
+
+            MovieList.RemoveAt(movieIndex);
+
+            Console.WriteLine("Movie was deleted...");
+            Console.WriteLine("---Delete Movie Menu---");
+            Thread.Sleep(2000);
+        }
     }
 }

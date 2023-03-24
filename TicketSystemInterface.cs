@@ -102,6 +102,8 @@ namespace CinemaTicketSystem
             Print("\t 3.Delete a Ticket");
             Print("\t 4.Back To Main Menu");
             Print("-------Delete--------");
+
+            HandleInput(true, system.DeleteMovie);
         }
 
     }
