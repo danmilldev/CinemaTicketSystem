@@ -67,7 +67,7 @@ namespace CinemaTicketSystem
             Print("\t 4.Back To Main Menu");
             Print("-------Creating--------");
 
-            HandleInput(true,system.CreateMovie);
+            HandleInput(true,system.CreateMovie,system.CreateRoom);
         }
 
         public void ReadingMenu()
