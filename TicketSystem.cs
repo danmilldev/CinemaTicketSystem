@@ -11,9 +11,12 @@ namespace CinemaTicketSystem
         public List<Ticket> TicketList { get; set; } = new();
         public List<Room> RoomList { get; set; } = new();
         public List<Movie> MovieList { get; set; } = new();
+        
+        int roomNumber { get; set; }
 
         public TicketSystem() { }
 
+        //movies
         public void CreateMovie()
         {
             Movie movie = new Movie();
@@ -61,5 +64,25 @@ namespace CinemaTicketSystem
             Console.WriteLine("---Delete Movie Menu---");
             Thread.Sleep(2000);
         }
+        //movies
+
+        //Ticket
+        //Ticket
+
+        //Room
+
+        public void CreateRoom()
+        {
+            Console.Clear();
+            ShowAllMovies();
+
+            int movieIndex = 0;
+
+            var result = int.TryParse(Console.ReadLine(), out movieIndex);
+
+            Room newRoom = new(MovieList.ElementAt(movieIndex),roomNumber++);
+        }
+
+        //Room
     }
 }

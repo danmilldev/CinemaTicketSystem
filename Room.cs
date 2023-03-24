@@ -10,10 +10,10 @@ namespace CinemaTicketSystem
     {
 
         public Dictionary<int,bool> Seats { get; set; } = new();
-        public string Movie { get; set; }
+        public Movie Movie { get; set; }
         public int RoomNumber { get; set; }
 
-        public Room(string movie, int roomNumber)
+        public Room(Movie movie, int roomNumber)
         {
             CreateSeats();
             this.Movie = movie;
