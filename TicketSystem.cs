@@ -54,11 +54,12 @@ namespace CinemaTicketSystem
             Console.Clear();
             ShowAllMovies();
 
-            int movieIndex = 0;
+            var result = int.TryParse(Console.ReadLine(), out int movieIndex);
 
-            var result = int.TryParse(Console.ReadLine(), out movieIndex);
-
-            MovieList.RemoveAt(movieIndex);
+            if (result)
+            {
+                MovieList.RemoveAt(movieIndex);
+            }
 
             Console.WriteLine("Movie was deleted...");
             Console.WriteLine("---Delete Movie Menu---");

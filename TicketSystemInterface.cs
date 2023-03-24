@@ -24,7 +24,7 @@ namespace CinemaTicketSystem
             HandleInput(false, CreatingMenu, ReadingMenu, UpdateMenu, DeleteMenu);
         }
 
-        public void HandleInput(bool shouldReturnMain,Action method1, Action method2 = null, Action method3 = null, Action method4 = null)
+        public void HandleInput(bool shouldReturnMain,Action method1, Action? method2 = null, Action? method3 = null, Action? method4 = null)
         {
             int input;
 
