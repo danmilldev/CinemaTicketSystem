@@ -13,5 +13,10 @@ namespace CinemaTicketSystem
         public int SeatNumber { get; set; } = 0;
         public string MovieName { get; set; } = "NoMovieNameSet";
         public int RoomNumber { get; set; } = 0;
+    
+        public Ticket()
+        {
+
+        }
     }
 }
