@@ -79,6 +79,8 @@ namespace CinemaTicketSystem
             Print("\t 3.View all Ticket");
             Print("\t 4.Back To Main Menu");
             Print("-------Reading--------");
+
+            HandleInput(true, system.ShowAllMovies);
         }
 
         public void UpdateMenu()

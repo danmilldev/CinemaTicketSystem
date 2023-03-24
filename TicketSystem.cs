@@ -33,5 +33,16 @@ namespace CinemaTicketSystem
 
             MovieList.Add(movie);
         }
+
+        public void ShowAllMovies()
+        {
+            int index = 0;
+            Console.WriteLine("---Movies---");
+            foreach (var movies in MovieList)
+            {
+                Console.WriteLine(index++ + ". Name: " + movies.MovieName + " | Duration: " + movies.Duration.Hours + " h " + movies.Duration.Minutes + " min");
+            }
+            Console.WriteLine("---Movies---");
+        }
     }
 }
