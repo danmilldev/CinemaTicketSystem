@@ -74,13 +74,17 @@ namespace CinemaTicketSystem
         public void CreateRoom()
         {
             Console.Clear();
+
             ShowAllMovies();
 
-            int movieIndex = 0;
+            var result = int.TryParse(Console.ReadLine(), out int movieIndex);
 
-            var result = int.TryParse(Console.ReadLine(), out movieIndex);
+            if (result)
+            {
+                Room newRoom = new(MovieList.ElementAt(movieIndex), roomNumber++);
+                RoomList.Add(newRoom);
+            }
 
-            Room newRoom = new(MovieList.ElementAt(movieIndex),roomNumber++);
         }
 
         //Room
