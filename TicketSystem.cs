@@ -121,6 +121,10 @@ namespace CinemaTicketSystem
                 }
 
                 Console.WriteLine("TicketNumber: " + ++TicketNumber + " MovieName: " + searchedRoom.Movie.MovieName + "RoomNumber "+ searchedRoom.RoomNumber +  " SeatNumber: " + seat);
+
+                Ticket ticket = new(seat,searchedRoom.Movie,searchedRoom.RoomNumber);
+
+                TicketList.Add(ticket);
             }
             else
             {
@@ -128,6 +132,21 @@ namespace CinemaTicketSystem
             }
         }
 
+
+        public void ShowAllTickets()
+        {
+            Console.WriteLine("-----TICKETLIST-----");
+
+            int TicketNumber = 0;
+
+            foreach (var Ticket in TicketList)
+            {
+                Console.WriteLine("TicketNumber: " + Ticket.TicketNumber + " Movie: " + Ticket.MovieToWatch.MovieName + " SeatNumber: " 
+                    + Ticket.SeatNumber + " RoomNumber: " + Ticket.RoomNumber);
+            }
+
+            Console.WriteLine("-----TICKETLIST-----");
+        }
         //Ticket
     }
 
