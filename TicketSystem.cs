@@ -102,11 +102,21 @@ namespace CinemaTicketSystem
 
                 if (result2)
                 {
-                    Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber,numOfSeats);
+                    Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber, numOfSeats);
                     RoomList.Add(newRoom);
                 }
             }
 
+        }
+
+        public void ShowRooms()
+        {
+            Console.WriteLine("-----ROOMS-----");
+            foreach (var room in RoomList)
+            {
+                Console.WriteLine("RoomNumber: " + room.RoomNumber + " | " + " Movie: " + room.Movie.MovieName + " SeatAmount: " + room.Seats.Where(seat => seat.Value == false).Count());
+            }
+            Console.WriteLine("-----ROOMS-----");
         }
 
         //Room
