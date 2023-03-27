@@ -13,16 +13,16 @@ namespace CinemaTicketSystem
         public Movie Movie { get; set; }
         public int RoomNumber { get; set; }
 
-        public Room(Movie movie, int roomNumber)
+        public Room(Movie movie, int roomNumber, int numberOfSeats)
         {
-            CreateSeats();
+            CreateSeats(numberOfSeats);
             this.Movie = movie;
             this.RoomNumber = roomNumber;
         }
 
-        void CreateSeats()
+        void CreateSeats(int numberOFSeats)
         {
-            for (int i = 0; i < 200; i++)
+            for (int i = 0; i < numberOFSeats; i++)
             {
                 Seats?.Add(i, false);
             }

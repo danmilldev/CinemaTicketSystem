@@ -30,7 +30,7 @@ namespace CinemaTicketSystem
             int movieDurationInMinuts = int.Parse(Console.ReadLine());
             int movieDurationFinalMinutes = movieDurationInMinuts % 60;
             int movieDurationFinalHours = movieDurationInMinuts / 60;
-            TimeSpan movieDuration = new TimeSpan(movieDurationFinalHours,movieDurationFinalMinutes,0);
+            TimeSpan movieDuration = new TimeSpan(movieDurationFinalHours, movieDurationFinalMinutes, 0);
 
             movie.MovieName = movieName;
             movie.Duration = movieDuration;
@@ -77,7 +77,7 @@ namespace CinemaTicketSystem
 
         //movies
 
-        
+
         //Ticket
         //Ticket
 
@@ -95,8 +95,16 @@ namespace CinemaTicketSystem
 
             if (result)
             {
-                Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber);
-                RoomList.Add(newRoom);
+                Console.WriteLine("How many Seats do you want?");
+                Console.Write("Amount: ");
+
+                var result2 = int.TryParse(Console.ReadLine(), out int numOfSeats);
+
+                if (result2)
+                {
+                    Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber,numOfSeats);
+                    RoomList.Add(newRoom);
+                }
             }
 
         }
