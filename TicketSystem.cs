@@ -92,7 +92,6 @@ namespace CinemaTicketSystem
     internal partial class TicketSystem
     {
         //Ticket
-        //Ticket should have MovieName -  SeatNumber - RoomNumber
 
         public int TakeSeat(Room room)
         {
