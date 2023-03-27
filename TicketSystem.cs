@@ -91,20 +91,28 @@ namespace CinemaTicketSystem
 
             ShowAllMovies();
 
-            var result = int.TryParse(Console.ReadLine(), out int movieIndex);
-
-            if (result)
+            //Check if any Movies even exist
+            if (MovieList.Any())
             {
-                Console.WriteLine("How many Seats do you want?");
-                Console.Write("Amount: ");
+                var result = int.TryParse(Console.ReadLine(), out int movieIndex);
 
-                var result2 = int.TryParse(Console.ReadLine(), out int numOfSeats);
-
-                if (result2)
+                if (result)
                 {
-                    Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber, numOfSeats);
-                    RoomList.Add(newRoom);
+                    Console.WriteLine("How many Seats do you want?");
+                    Console.Write("Amount: ");
+
+                    var result2 = int.TryParse(Console.ReadLine(), out int numOfSeats);
+
+                    if (result2)
+                    {
+                        Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber, numOfSeats);
+                        RoomList.Add(newRoom);
+                    }
                 }
+            }
+            else
+            {
+                Console.WriteLine("No Movies Playing so you cant make a Room");
             }
 
         }
@@ -117,6 +125,27 @@ namespace CinemaTicketSystem
                 Console.WriteLine("RoomNumber: " + room.RoomNumber + " | " + " Movie: " + room.Movie.MovieName + " SeatAmount: " + room.Seats.Where(seat => seat.Value == false).Count());
             }
             Console.WriteLine("-----ROOMS-----");
+        }
+
+        public void DeleteRoom()
+        {
+            Console.WriteLine("---Delete Movie Menu---");
+            Console.Clear();
+            ShowRooms();
+
+            var result = int.TryParse(Console.ReadLine(),out int roomNumber);
+
+            if(result)
+            {
+                var searchedRoom = RoomList.Where(room => room.RoomNumber == roomNumber).FirstOrDefault();
+
+                if(searchedRoom is not null)
+                {
+                    RoomList.Remove(searchedRoom);
+                    Console.WriteLine("Room " + searchedRoom.RoomNumber + " was deleted!");
+                }
+            }
+
         }
 
         //Room
