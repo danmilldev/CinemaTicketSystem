@@ -120,7 +120,7 @@ namespace CinemaTicketSystem
                     seat = TakeSeat(searchedRoom);
                 }
 
-                Console.WriteLine("TicketNumber: " + ++TicketNumber + " MovieName: " + searchedRoom.Movie.MovieName + " SeatNumber: " + seat);
+                Console.WriteLine("TicketNumber: " + ++TicketNumber + " MovieName: " + searchedRoom.Movie.MovieName + "RoomNumber "+ searchedRoom.RoomNumber +  " SeatNumber: " + seat);
             }
             else
             {
