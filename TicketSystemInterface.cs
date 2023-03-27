@@ -71,7 +71,7 @@ namespace CinemaTicketSystem
             Print("\t 4.Back To Main Menu");
             Print("-------Creating--------");
 
-            HandleInput(true,system.CreateMovie,system.CreateRoom,system.CreateTicket);
+            HandleInput(true,system.CreateMovie,system.CreateRoom,system.CreateTicket,TicketMenu);
         }
 
         public void ReadingMenu()
@@ -84,7 +84,7 @@ namespace CinemaTicketSystem
             Print("\t 4.Back To Main Menu");
             Print("-------Reading--------");
 
-            HandleInput(true, system.ShowAllMovies,system.ShowRooms,system.ShowAllTickets);
+            HandleInput(true, system.ShowAllMovies,system.ShowRooms,system.ShowAllTickets,TicketMenu);
         }
 
         public void UpdateMenu()
@@ -108,7 +108,7 @@ namespace CinemaTicketSystem
             Print("\t 4.Back To Main Menu");
             Print("-------Delete--------");
 
-            HandleInput(true, system.DeleteMovie,system.DeleteRoom);
+            HandleInput(true, system.DeleteMovie,system.DeleteRoom,system.DeleteTicket,TicketMenu);
         }
 
     }
