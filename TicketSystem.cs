@@ -15,7 +15,10 @@ namespace CinemaTicketSystem
         int roomNumber { get; set; } = 0;
 
         public TicketSystem() { }
+    }
 
+    internal partial class TicketSystem
+    {
         //movies
 
         public void CreateMovie()
@@ -76,15 +79,15 @@ namespace CinemaTicketSystem
         }
 
         //movies
+    }
 
-
+    internal partial class TicketSystem
+    {
         //Ticket
 
 
 
         //Ticket
-
-
     }
 
 
