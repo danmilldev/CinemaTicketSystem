@@ -11,12 +11,13 @@ namespace CinemaTicketSystem
         public List<Ticket> TicketList { get; set; } = new();
         public List<Room> RoomList { get; set; } = new();
         public List<Movie> MovieList { get; set; } = new();
-        
-        int roomNumber { get; set; }
+
+        int roomNumber { get; set; } = 0;
 
         public TicketSystem() { }
 
         //movies
+
         public void CreateMovie()
         {
             Movie movie = new Movie();
@@ -31,7 +32,7 @@ namespace CinemaTicketSystem
             int movieDurationFinalHours = movieDurationInMinuts / 60;
             TimeSpan movieDuration = new TimeSpan(movieDurationFinalHours,movieDurationFinalMinutes,0);
 
-            movie.MovieName = movieName ?? "NoMovieNameSet";
+            movie.MovieName = movieName;
             movie.Duration = movieDuration;
 
             MovieList.Add(movie);
@@ -41,9 +42,17 @@ namespace CinemaTicketSystem
         {
             int index = 0;
             Console.WriteLine("---Movies---");
-            foreach (var movies in MovieList)
+
+            if (MovieList.Any())
             {
-                Console.WriteLine(index++ + ". Name: " + movies.MovieName + " | Duration: " + movies.Duration.Hours + " h " + movies.Duration.Minutes + " min");
+                foreach (var movies in MovieList)
+                {
+                    Console.WriteLine(index++ + ". Name: " + movies.MovieName + " | Duration: " + movies.Duration.Hours + " h " + movies.Duration.Minutes + " min");
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are currently no Movies Available.");
             }
             Console.WriteLine("---Movies---");
         }
@@ -65,10 +74,14 @@ namespace CinemaTicketSystem
             Console.WriteLine("---Delete Movie Menu---");
             Thread.Sleep(2000);
         }
+
         //movies
 
+        
         //Ticket
         //Ticket
+
+
 
         //Room
 
@@ -82,7 +95,7 @@ namespace CinemaTicketSystem
 
             if (result)
             {
-                Room newRoom = new(MovieList.ElementAt(movieIndex), roomNumber++);
+                Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber);
                 RoomList.Add(newRoom);
             }
 

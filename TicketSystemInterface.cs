@@ -28,6 +28,8 @@ namespace CinemaTicketSystem
         {
             int input;
 
+            Console.Write("Input: ");
+
             var inputResult = int.TryParse(Console.ReadLine(), out input);
 
             if (inputResult)
