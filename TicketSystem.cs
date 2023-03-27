@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CinemaTicketSystem
 {
-    internal class TicketSystem
+    internal partial class TicketSystem
     {
         public List<Ticket> TicketList { get; set; } = new();
         public List<Room> RoomList { get; set; } = new();
@@ -85,7 +85,11 @@ namespace CinemaTicketSystem
         //Ticket
 
 
+    }
 
+
+    internal partial class TicketSystem
+    {
         //Room
 
         public void CreateRoom()
@@ -136,13 +140,13 @@ namespace CinemaTicketSystem
             Console.Clear();
             ShowRooms();
 
-            var result = int.TryParse(Console.ReadLine(),out int roomNumber);
+            var result = int.TryParse(Console.ReadLine(), out int roomNumber);
 
-            if(result)
+            if (result)
             {
                 var searchedRoom = RoomList.Where(room => room.RoomNumber == roomNumber).FirstOrDefault();
 
-                if(searchedRoom is not null)
+                if (searchedRoom is not null)
                 {
                     RoomList.Remove(searchedRoom);
                     Console.WriteLine("Room " + searchedRoom.RoomNumber + " was deleted!");
@@ -151,7 +155,5 @@ namespace CinemaTicketSystem
         }
 
         //Room
-
-
     }
 }
