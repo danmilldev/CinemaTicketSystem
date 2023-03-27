@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -158,6 +159,40 @@ namespace CinemaTicketSystem
             Console.WriteLine("-----TICKETLIST-----");
         }
 
+        public void DeleteTicket()
+        {
+            Console.WriteLine("-----TICKET DELETION-----");
+
+
+            if(TicketList.Any())
+            {
+                ShowAllTickets();
+                Console.Write("Ticket To Delete: ");
+
+                var result = int.TryParse(Console.ReadLine(), out int ticketNumberLookingFor);
+
+                if (result)
+                {
+                    var searchedTicket = TicketList.Where(ticket => ticket.TicketNumber == ticketNumberLookingFor).FirstOrDefault();
+                    
+                    if(searchedTicket is not null)
+                    {
+                        TicketList.Remove(searchedTicket);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Not an applicable Ticket");
+                    DeleteTicket();
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are no Tickets to delete.");
+            }
+
+            Console.WriteLine("-----TICKET DELETION-----");
+        }
 
         //Ticket
     }
