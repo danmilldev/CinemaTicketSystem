@@ -89,8 +89,7 @@ namespace CinemaTicketSystem
         {
             Console.Clear();
             Print("-------Update--------");
-            Print("\t 1.Add Movie to Room");
-            Print("\t 2.Add Movie and Seat to Ticket");
+            Print("\t 1.Change movie in Room");
             Print("\t 4.Back To Main Menu");
             Print("-------Update--------");
         }
