@@ -16,8 +16,8 @@ namespace CinemaTicketSystem
         public Room(Movie movie, int roomNumber, int numberOfSeats)
         {
             CreateSeats(numberOfSeats);
-            this.Movie = movie;
-            this.RoomNumber = roomNumber;
+            Movie = movie;
+            RoomNumber = roomNumber;
         }
 
         void CreateSeats(int numberOFSeats)

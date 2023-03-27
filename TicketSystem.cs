@@ -79,6 +79,9 @@ namespace CinemaTicketSystem
 
 
         //Ticket
+
+
+
         //Ticket
 
 
@@ -145,9 +148,10 @@ namespace CinemaTicketSystem
                     Console.WriteLine("Room " + searchedRoom.RoomNumber + " was deleted!");
                 }
             }
-
         }
 
         //Room
+
+
     }
 }
