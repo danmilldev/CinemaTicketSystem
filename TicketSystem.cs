@@ -98,7 +98,17 @@ namespace CinemaTicketSystem
             var searchRoom = RoomList.ElementAt(room.RoomNumber - 1);
 
             var seat = new Random().Next(0, searchRoom.Seats.Count);
-            searchRoom.Seats[seat] = true;
+
+            if (searchRoom.Seats[seat] is not true)
+            {
+                searchRoom.Seats[seat] = true;
+            }
+            else
+            {
+                TakeSeat(room);
+                Console.WriteLine("Searching free seat...");
+            }
+
             return seat;
         }
 
@@ -118,8 +128,10 @@ namespace CinemaTicketSystem
                 if (searchedRoom is not null)
                 {
                     seat = TakeSeat(searchedRoom);
+                    Console.Clear();
                 }
 
+                Console.WriteLine("-----NEW TICKET-----");
                 Console.WriteLine("TicketNumber: " + ++TicketNumber + " MovieName: " + searchedRoom.Movie.MovieName + "RoomNumber "+ searchedRoom.RoomNumber +  " SeatNumber: " + seat);
 
                 Ticket ticket = new(seat,searchedRoom.Movie,searchedRoom.RoomNumber);
@@ -147,6 +159,8 @@ namespace CinemaTicketSystem
 
             Console.WriteLine("-----TICKETLIST-----");
         }
+
+
         //Ticket
     }
 

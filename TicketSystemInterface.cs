@@ -84,7 +84,7 @@ namespace CinemaTicketSystem
             Print("\t 4.Back To Main Menu");
             Print("-------Reading--------");
 
-            HandleInput(true, system.ShowAllMovies,system.ShowRooms);
+            HandleInput(true, system.ShowAllMovies,system.ShowRooms,system.ShowAllTickets);
         }
 
         public void UpdateMenu()
