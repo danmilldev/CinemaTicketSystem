@@ -12,7 +12,9 @@ namespace CinemaTicketSystem
         public List<Room> RoomList { get; set; } = new();
         public List<Movie> MovieList { get; set; } = new();
 
-        int roomNumber { get; set; } = 0;
+        int RoomNumber { get; set; } = 0;
+
+        int TicketNumber { get; set; } = 0;
 
         public TicketSystem() { }
     }
@@ -78,14 +80,53 @@ namespace CinemaTicketSystem
             Thread.Sleep(2000);
         }
 
+        public void ChangeMovieInRoom()
+        {
+            throw new NotImplementedException();
+        }
+
         //movies
     }
 
     internal partial class TicketSystem
     {
         //Ticket
+        //Ticket should have MovieName -  SeatNumber - RoomNumber
+
+        public int TakeSeat(Room room)
+        {
+            var searchRoom = RoomList.ElementAt(room.RoomNumber - 1);
+
+            var seat = new Random().Next(0, searchRoom.Seats.Count);
+            searchRoom.Seats[seat] = true;
+            return seat;
+        }
+
+        public void CreateTicket()
+        {
+            ShowAllMovies();
+            Console.Write("Movie Number: ");
 
 
+            if (MovieList.Any())
+            {
+                var result = int.TryParse(Console.ReadLine(), out int movieIndex);
+                var searchedRoom = RoomList.Where(room => room.Movie.MovieName == MovieList.ElementAt(movieIndex).MovieName).FirstOrDefault();
+
+                var seat = 0;
+
+                if (searchedRoom is not null)
+                {
+                    seat = TakeSeat(searchedRoom);
+                }
+
+                Console.WriteLine("TicketNumber: " + ++TicketNumber + " MovieName: " + searchedRoom.Movie.MovieName + " SeatNumber: " + seat);
+            }
+            else
+            {
+                Console.WriteLine("No Movies Playing so you cant make a Room");
+            }
+        }
 
         //Ticket
     }
@@ -115,7 +156,7 @@ namespace CinemaTicketSystem
 
                     if (result2)
                     {
-                        Room newRoom = new(MovieList.ElementAt(movieIndex), ++roomNumber, numOfSeats);
+                        Room newRoom = new(MovieList.ElementAt(movieIndex), ++RoomNumber, numOfSeats);
                         RoomList.Add(newRoom);
                     }
                 }
@@ -155,6 +196,7 @@ namespace CinemaTicketSystem
                     Console.WriteLine("Room " + searchedRoom.RoomNumber + " was deleted!");
                 }
             }
+            roomNumber--;
         }
 
         //Room

@@ -53,7 +53,9 @@ namespace CinemaTicketSystem
                         break;
                 }
             }
-            if (shouldReturnMain)
+
+
+            if (shouldReturnMain || !inputResult)
             {
                 TicketMenu();
             }
@@ -69,7 +71,7 @@ namespace CinemaTicketSystem
             Print("\t 4.Back To Main Menu");
             Print("-------Creating--------");
 
-            HandleInput(true,system.CreateMovie,system.CreateRoom);
+            HandleInput(true,system.CreateMovie,system.CreateRoom,system.CreateTicket);
         }
 
         public void ReadingMenu()
@@ -78,7 +80,7 @@ namespace CinemaTicketSystem
             Print("-------Reading--------");
             Print("\t 1.View all Movie");
             Print("\t 2.View all room");
-            Print("\t 3.View all Ticket");
+            Print("\t 3.View all Tickets");
             Print("\t 4.Back To Main Menu");
             Print("-------Reading--------");
 
@@ -89,9 +91,11 @@ namespace CinemaTicketSystem
         {
             Console.Clear();
             Print("-------Update--------");
-            Print("\t 1.Change movie in Room");
+            Print("\t 1.Change movie in Room"); //has to be made
             Print("\t 4.Back To Main Menu");
             Print("-------Update--------");
+
+            HandleInput(true,system.ChangeMovieInRoom);
         }
 
         public void DeleteMenu()

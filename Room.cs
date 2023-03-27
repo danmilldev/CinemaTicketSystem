@@ -29,6 +29,5 @@ namespace CinemaTicketSystem
             Console.WriteLine("Seats where created for the room...");
             Thread.Sleep(1000);
         }
-
     }
 }
