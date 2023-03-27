@@ -149,8 +149,6 @@ namespace CinemaTicketSystem
         {
             Console.WriteLine("-----TICKETLIST-----");
 
-            int TicketNumber = 0;
-
             foreach (var Ticket in TicketList)
             {
                 Console.WriteLine("TicketNumber: " + Ticket.TicketNumber + " Movie: " + Ticket.MovieToWatch.MovieName + " SeatNumber: " 
