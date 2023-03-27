@@ -8,11 +8,10 @@ namespace CinemaTicketSystem
 {
     internal class Ticket
     {
-
-        public string BuyerName { get; set; } = "NoBuyerNBameSet";
-        public int SeatNumber { get; set; } = 0;
+        public string BuyerName { get; set; }
+        public int SeatNumber { get; set; }
         public Movie MovieToWatch { get; set; }
-        public int RoomNumber { get; set; } = 0;
+        public int RoomNumber { get; set; }
     
         public Ticket(string buyerName, int seatNumber,Movie movieToWatch,int roomNumber)
         {
